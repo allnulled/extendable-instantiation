@@ -1,20 +1,3 @@
-# extendable-instantiation
-
-Extend objects in a simple, reliable way
-
-## Installation
-
-`$ npm i -s extendable-instantiation`
-
-## Get started
-
-```js
-
-```
-
-## API
-
-
 
 ### `Instantiation($this:Object, $defaults:Object, $options:Object, $$mapper:Object|Boolean, $passDefault:Boolean)`
 
@@ -147,12 +130,3 @@ Extend objects in a simple, reliable way
 
 
 
-
-
-## License
-
-This project is under [WTFPL or *What The Fuck Public License*](), which means *do whatever you want with it*.
-
-## Issues
-
-Plese, address your issues and suggestions at the [Issues](#) form of the Github project.
