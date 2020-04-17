@@ -29,31 +29,31 @@ Extend objects in a simple, reliable way
 **Parameter**: 
 
 
-  - `$this:Object`. 
+  - `$this:Object`. **Required**. Object to be extended or fixed. 
 
 
-  - `$defaults:Object`. 
+  - `$defaults:Object`. **Required**. Object that contains default values (among others).
 
 
-  - `$options:Object`. 
+  - `$options:Object`. **Required**. Object that contains optional values (among others).
 
 
-  - `$$mapper:Object|Boolean`. 
+  - `$$mapper:Object|Boolean`. **Optional**. Object that explains how to map default and optional values. 
 
 
-  - `$passDefault:Boolean`. 
+  - `$passDefault:Boolean`. **Optional**. Whether or not to extend the basic object with the default algorythm of extension. Default: `true`.
 
 
 **Throws**:  
 
 
-  - `error:Error`:
+  - `Error` when a property in `$$mapper` is not found, either in `$defaults` (on keys) or in `$options` (on values)
 
 
-  - `error:Error`:
+  - `Error` when a property in `$$mapper` values could not be set to `$this`.
 
 
-**Returns**.
+**Returns**:  `$this:Object`. The updated object.
 
 
 **Description**:  

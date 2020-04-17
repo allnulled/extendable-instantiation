@@ -5,22 +5,22 @@
  * @name `Instantiation`
  * @type Function
  * @parameter
- * @parameter  - `$this:Object`. 
- * @parameter  - `$defaults:Object`. 
- * @parameter  - `$options:Object`. 
- * @parameter  - `$$mapper:Object|Boolean`. 
- * @parameter  - `$passDefault:Boolean`. 
+ * @parameter  - `$this:Object`. **Required**. Object to be extended or fixed. 
+ * @parameter  - `$defaults:Object`. **Required**. Object that contains default values (among others).
+ * @parameter  - `$options:Object`. **Required**. Object that contains optional values (among others).
+ * @parameter  - `$$mapper:Object|Boolean`. **Optional**. Object that explains how to map default and optional values. 
+ * @parameter  - `$passDefault:Boolean`. **Optional**. Whether or not to extend the basic object with the default algorythm of extension. Default: `true`.
  * @throws 
- * @throws  - `error:Error`:
- * @throws  - `error:Error`:
- * @returns
+ * @throws  - `Error` when a property in `$$mapper` is not found, either in `$defaults` (on keys) or in `$options` (on values)
+ * @throws  - `Error` when a property in `$$mapper` values could not be set to `$this`.
+ * @returns `$this:Object`. The updated object.
  * @description 
  * 
  * 
  */
 const Instantiation = ($this, $defaults, $options, $$mapper = false, $passDefaults = true) => {
     Object.assign($this, $options);
-    let $mapper = !$passDefaults ? {} : Object.getOwnPropertyNames($defaults).reduce((output, property) => {
+    let $mapper = (!$passDefaults )? {} : Object.getOwnPropertyNames($defaults).reduce((output, property) => {
         const propertyValue = $defaults[property];
         if ($passDefaults && property.startsWith("DEFAULT_")) {
             if (typeof propertyValue === "object") {
@@ -47,6 +47,7 @@ const Instantiation = ($this, $defaults, $options, $$mapper = false, $passDefaul
             setProperty($this, destinationProperty, typeof optionValue !== "undefined" ? optionValue : defaultValue);
         }
     });
+    return $this;
 }
 /**
  * 

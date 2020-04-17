@@ -4,7 +4,7 @@
   "description": "Extend objects in a simple, reliable way",
   "main": "index.js",
   "scripts": {
-    "upload": "git add . && git commit && git push",
+    "upload": "npm run test && npm run docs && git add . && git commit && git push",
     "docs": "javadoc -i index.js -f markdown -o docs/README.api.md && concat docs/README.ini.md docs/README.api.md docs/README.end.md -o README.md",
     "dev": "nodemon -w index.js -w test/index.test.js -x 'npm run test'",
     "test": "mocha test/*.test.js"
