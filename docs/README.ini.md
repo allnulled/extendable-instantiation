@@ -88,5 +88,26 @@ The default mapper algorythm will pick the properties from `default` that start 
 
 This is how we get the demonstration work: with the default algorythm under the hood, doing some stuff for us.
 
+### Customization
+
+The `mapper` and the `passDefaults` parameters can be used to customize the way we mix `defaults` and `options` objects.
+
+Basically, the mapper is an object whose keys are picked from the `defaults`, and whose values are picked from the `options` objects.
+
+Said this, one can nest access by the `splitter` token, which by default is `/`.
+
+```js
+{
+	"CUSTOM_OPTIONS": "options/custom",
+	"CUSTOM_OPTIONS/specialProperty": "options/custom/specialProperty",
+}
+```
+
+### The idea
+
+Extending objects is a powerful mechanism, but the way of doing it can result controversial.
+
+This is just a flexible proposal which can be very adaptive, and saves a lot of time and repetitive code.
+
 ## API
 
