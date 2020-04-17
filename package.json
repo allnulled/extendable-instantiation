@@ -9,9 +9,9 @@
     "dev": "nodemon -w index.js -w 'test/*.test.js' -x 'npm run test'",
     "test": "mocha test/*.test.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["extend", "object", "nest", "deep"],
+  "author": "allnulled",
+  "license": "WTFPL",
   "devDependencies": {
     "chai": "^4.2.0",
     "concat": "^1.0.3",
