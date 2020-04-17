@@ -1,19 +1,19 @@
 /**
  * 
- * ### `Instantiation($this:Object, $defaults:Object, $options:Object, $$mapper:Object|Boolean, $passDefault:Boolean)`
+ * #### `Instantiation(this:Object, defaults:Object, options:Object, mapper:Object|Boolean, passDefault:Boolean)`
  * 
  * @name `Instantiation`
  * @type Function
  * @parameter
- * @parameter  - `$this:Object`. **Required**. Object to be extended or fixed. 
- * @parameter  - `$defaults:Object`. **Required**. Object that contains default values (among others).
- * @parameter  - `$options:Object`. **Required**. Object that contains optional values (among others).
- * @parameter  - `$$mapper:Object|Boolean`. **Optional**. Object that explains how to map default and optional values. 
- * @parameter  - `$passDefault:Boolean`. **Optional**. Whether or not to extend the basic object with the default algorythm of extension. Default: `true`.
+ * @parameter  - `this:Object`. **Required**. Object to be extended or fixed. 
+ * @parameter  - `defaults:Object`. **Required**. Object that contains default values (among others).
+ * @parameter  - `options:Object`. **Required**. Object that contains optional values (among others).
+ * @parameter  - `mapper:Object|Boolean`. **Optional**. Object that explains how to map default and optional values. 
+ * @parameter  - `passDefault:Boolean`. **Optional**. Whether or not to extend the basic object with the default algorythm of extension. Default: `true`.
  * @throws 
- * @throws  - `Error` when a property in `$$mapper` is not found, either in `$defaults` (on keys) or in `$options` (on values)
- * @throws  - `Error` when a property in `$$mapper` values could not be set to `$this`.
- * @returns `$this:Object`. The updated object.
+ * @throws  - `Error` when a property in `mapper` is not found, either in `defaults` (on keys) or in `options` (on values)
+ * @throws  - `Error` when a property in `mapper` values could not be set to `this`.
+ * @returns `this:Object`. The updated object.
  * @description 
  * 
  * 
@@ -51,21 +51,20 @@ const Instantiation = ($this, $defaults, $options, $$mapper = false, $passDefaul
 }
 /**
  * 
- * ### `Instantiation.setProperty(base:Object, selector:Array<String>, value:Any, splitter:String)`
+ * #### `Instantiation.setProperty(base:Object, selector:String, value:Any, splitter:String)`
  * 
  * @name `Instantiation.setProperty`
  * @type Function
  * @parameter
- * @parameter  - `base:Object`. 
- * @parameter  - `selector:Array<String>`. 
- * @parameter  - `value:Any`. 
- * @parameter  - `splitter:String`. 
+ * @parameter  - `base:Object`. **Required**. Object to alter.
+ * @parameter  - `selector:String`. **Required**. Property to alter. Property `splitter` determines the splitter token.
+ * @parameter  - `value:Any`. **Required**. Value to set.
+ * @parameter  - `splitter:String`. **Optional**. Token to split the selector into parts. By default: `/`
  * @throws 
- * @throws  - `error:Error`:
- * @throws  - `error:Error`:
- * @returns
- * @description 
- * 
+ * @throws  - `Error` when a property should be accessible as object, and it is not.
+ * @throws  - `Error` when a property should exist in object, and it does not.
+ * @returns `undefined`
+ * @description Sets the property selected (by `selector`) to the value passed (by `value`) in base object (`base`). The selector can be customized (by `splitter`).
  * 
  */
 const setProperty = (base, selector, value, splitter = "/") => {
@@ -89,20 +88,19 @@ const setProperty = (base, selector, value, splitter = "/") => {
 
 /**
  * 
- * ### `Instantiation.getProperty(base:Object, selector:Array<String>, defaultValue:Any, splitter:String)`
+ * #### `Instantiation.getProperty(base:Object, selector:String, defaultValue:Any, splitter:String)`
  * 
  * @name `Instantiation.getProperty`
  * @type Function
  * @parameter
- * @parameter  - `base:Object`.
- * @parameter  - `selector:Array<String>`.
- * @parameter  - `defaultValue:Any`.
- * @parameter  - `splitter:String`.
+ * @parameter  - `base:Object`. **Required**. Object from which to get the data.
+ * @parameter  - `selector:String`. **Required**. Property to get.
+ * @parameter  - `defaultValue:Any`. **Required**. Default value, when a property is not found.
+ * @parameter  - `splitter:String`. **Optional**. Token to split the selector into parts. By default: `/`
  * @throws 
- * @throws  - `error:Error`:
- * @throws  - `error:Error`:
- * @returns
- * @description 
+ * @throws  - `Error` when a property should be accessible as object, and it is not.
+ * @returns `selection:Any`
+ * @description Gets the property selected (by `selector`) from the base object (`base`) or the value passed (by `defaultValue`). The selector can be customized (by `splitter`).
  * 
  * 
  */

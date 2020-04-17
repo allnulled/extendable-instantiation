@@ -16,7 +16,7 @@ Extend objects in a simple, reliable way
 
 
 
-### `Instantiation($this:Object, $defaults:Object, $options:Object, $$mapper:Object|Boolean, $passDefault:Boolean)`
+#### `Instantiation(this:Object, defaults:Object, options:Object, mapper:Object|Boolean, passDefault:Boolean)`
 
 
 
@@ -29,31 +29,31 @@ Extend objects in a simple, reliable way
 **Parameter**: 
 
 
-  - `$this:Object`. **Required**. Object to be extended or fixed. 
+  - `this:Object`. **Required**. Object to be extended or fixed. 
 
 
-  - `$defaults:Object`. **Required**. Object that contains default values (among others).
+  - `defaults:Object`. **Required**. Object that contains default values (among others).
 
 
-  - `$options:Object`. **Required**. Object that contains optional values (among others).
+  - `options:Object`. **Required**. Object that contains optional values (among others).
 
 
-  - `$$mapper:Object|Boolean`. **Optional**. Object that explains how to map default and optional values. 
+  - `mapper:Object|Boolean`. **Optional**. Object that explains how to map default and optional values. 
 
 
-  - `$passDefault:Boolean`. **Optional**. Whether or not to extend the basic object with the default algorythm of extension. Default: `true`.
+  - `passDefault:Boolean`. **Optional**. Whether or not to extend the basic object with the default algorythm of extension. Default: `true`.
 
 
 **Throws**:  
 
 
-  - `Error` when a property in `$$mapper` is not found, either in `$defaults` (on keys) or in `$options` (on values)
+  - `Error` when a property in `mapper` is not found, either in `defaults` (on keys) or in `options` (on values)
 
 
-  - `Error` when a property in `$$mapper` values could not be set to `$this`.
+  - `Error` when a property in `mapper` values could not be set to `this`.
 
 
-**Returns**:  `$this:Object`. The updated object.
+**Returns**:  `this:Object`. The updated object.
 
 
 **Description**:  
@@ -62,7 +62,7 @@ Extend objects in a simple, reliable way
 
 
 
-### `Instantiation.setProperty(base:Object, selector:Array<String>, value:Any, splitter:String)`
+#### `Instantiation.setProperty(base:Object, selector:String, value:Any, splitter:String)`
 
 
 
@@ -75,37 +75,36 @@ Extend objects in a simple, reliable way
 **Parameter**: 
 
 
-  - `base:Object`. 
+  - `base:Object`. **Required**. Object to alter.
 
 
-  - `selector:Array<String>`. 
+  - `selector:String`. **Required**. Property to alter. Property `splitter` determines the splitter token.
 
 
-  - `value:Any`. 
+  - `value:Any`. **Required**. Value to set.
 
 
-  - `splitter:String`. 
+  - `splitter:String`. **Optional**. Token to split the selector into parts. By default: `/`
 
 
 **Throws**:  
 
 
-  - `error:Error`:
+  - `Error` when a property should be accessible as object, and it is not.
 
 
-  - `error:Error`:
+  - `Error` when a property should exist in object, and it does not.
 
 
-**Returns**.
+**Returns**:  `undefined`
 
 
-**Description**:  
+**Description**:  Sets the property selected (by `selector`) to the value passed (by `value`) in base object (`base`). The selector can be customized (by `splitter`).
 
 
 
 
-
-### `Instantiation.getProperty(base:Object, selector:Array<String>, defaultValue:Any, splitter:String)`
+#### `Instantiation.getProperty(base:Object, selector:String, defaultValue:Any, splitter:String)`
 
 
 
@@ -118,31 +117,28 @@ Extend objects in a simple, reliable way
 **Parameter**: 
 
 
-  - `base:Object`.
+  - `base:Object`. **Required**. Object from which to get the data.
 
 
-  - `selector:Array<String>`.
+  - `selector:String`. **Required**. Property to get.
 
 
-  - `defaultValue:Any`.
+  - `defaultValue:Any`. **Required**. Default value, when a property is not found.
 
 
-  - `splitter:String`.
+  - `splitter:String`. **Optional**. Token to split the selector into parts. By default: `/`
 
 
 **Throws**:  
 
 
-  - `error:Error`:
+  - `Error` when a property should be accessible as object, and it is not.
 
 
-  - `error:Error`:
+**Returns**:  `selection:Any`
 
 
-**Returns**.
-
-
-**Description**:  
+**Description**:  Gets the property selected (by `selector`) from the base object (`base`) or the value passed (by `defaultValue`). The selector can be customized (by `splitter`).
 
 
 
