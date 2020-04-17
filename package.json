@@ -9,7 +9,12 @@
     "dev": "nodemon -w index.js -w 'test/*.test.js' -x 'npm run test'",
     "test": "mocha test/*.test.js"
   },
-  "keywords": ["extend", "object", "nest", "deep"],
+  "keywords": [
+    "extend",
+    "object",
+    "nest",
+    "deep"
+  ],
   "author": "allnulled",
   "license": "WTFPL",
   "devDependencies": {
@@ -19,5 +24,18 @@
     "mocha": "^7.1.1",
     "nodemon": "^2.0.3",
     "nyc": "^15.0.1"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allnulled/extendable-instantiation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/allnulled/extendable-instantiation/issues"
+  },
+  "homepage": "https://github.com/allnulled/extendable-instantiation#readme"
 }
