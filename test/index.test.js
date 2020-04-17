@@ -5,7 +5,7 @@ describe("extendable-instantiation API", function() {
 	
 	this.timeout(1000 * 2);
 
-	it("can inherit default properties and custom properties mixed", function(done) {
+	it("can inherit default properties and custom properties mixed", function() {
 		this.timeout(1000 * 2);
 		let o = {};
 		API(o, {
@@ -47,8 +47,7 @@ describe("extendable-instantiation API", function() {
 				msg1: "msg1",
 				msg2: "msg2"
 			}
-		})
-		done();
+		});
 	});
 
 });

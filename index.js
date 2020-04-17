@@ -73,9 +73,6 @@ const setProperty = (base, selector, value, splitter = "/") => {
     const max = selectorItems.length;
     for (var index = 0; index < selectorItems.length; index++) {
         const selectorItem = selectorItems[index];
-        if (typeof out !== "object") {
-            throw new Error(`Property <${selectorItems.splice(0, index).join("/")}> of argument 1 must be an object to <setProperty>`);
-        }
         if (index === (max - 1)) {
             out[selectorItem] = value;
         } else if (!(selectorItem in out)) {
@@ -109,9 +106,6 @@ const getProperty = (base, selector, defaultValue = undefined, splitter = "/") =
     const selectorItems = selector.split(splitter);
     for (var index = 0; index < selectorItems.length; index++) {
         const selectorItem = selectorItems[index];
-        if (typeof out !== "object") {
-            throw new Error(`Property <${selectorItems.splice(0, index).join("/")}> of argument 1 must be an object to <getProperty>`);
-        }
         if (!(selectorItem in out)) {
             return defaultValue;
         }
